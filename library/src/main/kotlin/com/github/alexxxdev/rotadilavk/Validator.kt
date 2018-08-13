@@ -1,5 +1,7 @@
 package com.github.alexxxdev.rotadilavk
 
+import com.github.alexxxdev.rotadilavk.field.Field
+
 class Validator(vararg val field: Field) {
     var enableTrim:Boolean = false
 

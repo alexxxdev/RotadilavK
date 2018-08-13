@@ -10,12 +10,11 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.github.alexxxdev.rotadilavk.Field
+import com.github.alexxxdev.rotadilavk.field.Field
 import com.github.alexxxdev.rotadilavk.Validator
+import com.github.alexxxdev.rotadilavk.rule.CustomRule
 import com.github.alexxxdev.rotadilavk.rule.RegexRule
-import com.github.alexxxdev.rotadilavk.rule.RequiredRule
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlin.concurrent.thread
 
 class LoginActivity : AppCompatActivity() {
 
@@ -23,7 +22,9 @@ class LoginActivity : AppCompatActivity() {
         Validator(
                 Field(
                         inputLayout = emailInputLayout,
-                        rule = RequiredRule(getString(R.string.error_field_required)),
+                        rule = CustomRule(getString(R.string.error_field_required)) {
+                            true
+                        },
                         field = "email"
                 ),
                 Field(passwordInputLayout, RegexRule("^[a-zA-Z]{6,12}", getString(R.string.error_field_required)))
