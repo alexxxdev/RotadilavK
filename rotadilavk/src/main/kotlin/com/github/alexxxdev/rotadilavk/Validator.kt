@@ -1,8 +1,8 @@
 package com.github.alexxxdev.rotadilavk
 
-import com.github.alexxxdev.rotadilavk.field.Field
+import com.github.alexxxdev.rotadilavk.field.AbstractField
 
-class Validator(vararg val field: Field) {
+class Validator(vararg val field: AbstractField) {
     var enableTrim:Boolean = false
 
     fun validate(): Boolean {

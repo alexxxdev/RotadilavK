@@ -1,1 +1,4 @@
-include ':app', ':library'
+include ':app'
+include ':rotadilavk'
+include ':rotadilavk-support-v4'
+include ':rotadilavk-androidx'

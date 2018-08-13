@@ -1,13 +1,12 @@
-package com.github.alexxxdev.rotadilavk.field
+package com.github.alexxxdev.rotadilavk.support.v4.field
 
+import android.support.design.widget.TextInputLayout
 import android.text.Editable
 import android.text.TextWatcher
+import com.github.alexxxdev.rotadilavk.field.AbstractField
 import com.github.alexxxdev.rotadilavk.rule.IRule
-import com.google.android.material.textfield.TextInputLayout
 
-class Field(val inputLayout: TextInputLayout, val rule: IRule, val field: String?=null) {
-
-    var hasError: Boolean = false
+class Field(val inputLayout: TextInputLayout, val rule: IRule, field: String? = null) : AbstractField(field) {
 
     private val textWatcher = object : TextWatcher {
         override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) = Unit
@@ -20,7 +19,7 @@ class Field(val inputLayout: TextInputLayout, val rule: IRule, val field: String
         }
     }
 
-    fun check(enableTrim: Boolean): Field {
+    override fun check(enableTrim: Boolean): Field {
         inputLayout.editText?.let {
             if(enableTrim) it.setText(it.text.trim())
 
@@ -31,14 +30,14 @@ class Field(val inputLayout: TextInputLayout, val rule: IRule, val field: String
         return this
     }
 
-    fun setWatcher() {
+    override fun setWatcher() {
         inputLayout.editText?.let {
             it.removeTextChangedListener(textWatcher)
             it.addTextChangedListener(textWatcher)
         }
     }
 
-    fun setError(value: String) {
+    override fun setError(value: String) {
         hasError = true
         inputLayout.error = value
     }

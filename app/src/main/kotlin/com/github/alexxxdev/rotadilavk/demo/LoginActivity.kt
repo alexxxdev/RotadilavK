@@ -10,8 +10,8 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.github.alexxxdev.rotadilavk.field.Field
 import com.github.alexxxdev.rotadilavk.Validator
+import com.github.alexxxdev.rotadilavk.androidx.field.Field
 import com.github.alexxxdev.rotadilavk.rule.CustomRule
 import com.github.alexxxdev.rotadilavk.rule.RegexRule
 import kotlinx.android.synthetic.main.activity_login.*
