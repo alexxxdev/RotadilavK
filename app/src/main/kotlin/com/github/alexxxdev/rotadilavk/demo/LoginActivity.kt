@@ -12,6 +12,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.github.alexxxdev.rotadilavk.Field
 import com.github.alexxxdev.rotadilavk.Validator
+import com.github.alexxxdev.rotadilavk.rule.RegexRule
 import com.github.alexxxdev.rotadilavk.rule.RequiredRule
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlin.concurrent.thread
@@ -25,7 +26,7 @@ class LoginActivity : AppCompatActivity() {
                         rule = RequiredRule(getString(R.string.error_field_required)),
                         field = "email"
                 ),
-                Field(passwordInputLayout, RequiredRule(getString(R.string.error_field_required)))
+                Field(passwordInputLayout, RegexRule("^[a-zA-Z]{6,12}", getString(R.string.error_field_required)))
         ).enableTrim(true)
     }
 
