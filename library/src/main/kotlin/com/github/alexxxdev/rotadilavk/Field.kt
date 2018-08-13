@@ -2,6 +2,7 @@ package com.github.alexxxdev.rotadilavk
 
 import android.text.Editable
 import android.text.TextWatcher
+import com.github.alexxxdev.rotadilavk.rule.IRule
 import com.google.android.material.textfield.TextInputLayout
 
 class Field(val inputLayout: TextInputLayout, val rule: IRule, val field: String?=null) {
