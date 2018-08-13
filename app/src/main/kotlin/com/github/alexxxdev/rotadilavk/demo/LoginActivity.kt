@@ -26,7 +26,7 @@ class LoginActivity : AppCompatActivity() {
                         field = "email"
                 ),
                 Field(passwordInputLayout, RequiredRule(getString(R.string.error_field_required)))
-        )
+        ).enableTrim(true)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

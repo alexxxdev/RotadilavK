@@ -1,9 +1,11 @@
 package com.github.alexxxdev.rotadilavk
 
 class Validator(vararg val field: Field) {
+    var enableTrim:Boolean = false
+
     fun validate(): Boolean {
         val error = listOf(*field)
-                .map { it.check() }
+                .map { it.check(enableTrim) }
                 .filter { it.hasError }
                 .map {
                     it.setWatcher()
@@ -14,13 +16,17 @@ class Validator(vararg val field: Field) {
     }
 
     fun setErrors(errors: Map<String, String>) {
-        errors.map {
-            entry ->
+        errors.map { entry ->
             val field = listOf(*field).firstOrNull { it.field == entry.key }
             field?.apply {
                 setError(entry.value)
                 setWatcher()
             }
         }
+    }
+
+    fun enableTrim(enable: Boolean): Validator {
+        enableTrim = enable
+        return this
     }
 }

@@ -19,13 +19,13 @@ class Field(val inputLayout: TextInputLayout, val rule: IRule, val field: String
         }
     }
 
-    fun check(): Field {
+    fun check(enableTrim: Boolean): Field {
         inputLayout.editText?.let {
+            if(enableTrim) it.setText(it.text.trim())
+
             hasError = !rule.check(it.text.toString())
 
-            if (hasError) {
-                inputLayout.error = rule.message
-            }
+            if (hasError) inputLayout.error = rule.message
         }
         return this
     }
