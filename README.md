@@ -2,15 +2,15 @@
 Android validation library which helps developer boil down the tedious work up to a few simple steps
 
 # Use:
-```
+```Groovy
 com.github.alexxxdev.RotadilavK:rotadilavk-support-v4:master
 ```
 or
-```
+```Groovy
 com.github.alexxxdev.RotadilavK:rotadilavk-androidx:master
 ```
 
-```
+```Kotlin
  val validator:Validator by lazy {
         Validator(
                 Field(
