@@ -1,5 +1,5 @@
 # RotadilavK
-Android validation library which helps developer boil down the tedious work up to a few simple steps
+Android validation library that helps a developer do the tedious work in a few simple steps
 
 # Use:
 ```Groovy
